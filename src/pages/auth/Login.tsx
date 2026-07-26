@@ -1,5 +1,9 @@
+import Login from "../../features/auth/Login"
+
 const LoginPage = () => {
-    return <h1>Login</h1>
+    return (
+        <Login />
+    )
 }
 
 export default LoginPage

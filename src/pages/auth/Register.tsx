@@ -1,8 +1,8 @@
+import Register from "../../features/auth/Register"
+
 const RegisterPage = () => {
     return (
-        <>
-            <h1>Register</h1>
-        </>
+        <Register />
     )
 }
 

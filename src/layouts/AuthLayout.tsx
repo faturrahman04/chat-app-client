@@ -38,9 +38,11 @@ const AuthLayout = () => {
             <p className="text-black text-2xl font-open-sans font-medium text-center mt-12">{title}</p>
             <p className="text-center text-sm">{subTitle}</p>
 
-            <Outlet />
+            <div className="flex justify-center">
+                <Outlet />
+            </div>
 
-            <p className="font-open-sans text-center">{linkDetail}<Link to={redirect} className="text-blue-500 hover:underline"> {link}</Link></p>
+            <p className="font-open-sans text-center">{linkDetail}<Link to={redirect} className="text-lime-500 font-medium hover:underline"> {link}</Link></p>
 
         </div>
     )
