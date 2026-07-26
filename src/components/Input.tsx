@@ -32,7 +32,7 @@ export const Input = (
             required={required} 
             readOnly={readonly} 
             placeholder={placeholder} 
-            className={`${className}`}
+            className={`${className} outline-none`}
         />
     )
 }

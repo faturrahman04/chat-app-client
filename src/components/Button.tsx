@@ -14,6 +14,6 @@ export const Button = (
     }: ButtonProps
 ) => {
     return (
-        <button type={type} className={`bg-black ${className}`}>{children}</button>
+        <button type={type} className={`bg-black cursor-pointer ${className}`}>{children}</button>
     )
 }
