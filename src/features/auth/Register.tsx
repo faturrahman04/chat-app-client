@@ -1,6 +1,59 @@
+import { Button } from "../../components/Button"
+import { Input } from "../../components/Input"
+import { FormLayout } from "./FormLayout"
+
 const Register = () => {
     return (
-        <h1>Register</h1>
+        <FormLayout className={`w-[40%]`}>
+            <div className="flex gap-4 mb-4">
+                <Input 
+                    placeholder="First Name" 
+                    field="first_name" 
+                    type="text" 
+                    required={true} 
+                    className={'bg-gray-200/80 px-4 py-3 rounded-md w-full'} 
+                />
+
+                <Input 
+                    placeholder="Last Name" 
+                    field="last_name" 
+                    type="text" 
+                    required={false} 
+                    className={'bg-gray-200/80 px-4 py-3 rounded-md w-full'} 
+                />
+            </div>
+
+            <Input 
+                placeholder="username" 
+                field="username" 
+                type="text" 
+                required={true} 
+                className={'bg-gray-200/80 px-4 py-3 rounded-md w-full mb-4'} 
+            />
+
+            <Input 
+                placeholder="user@gmail.com" 
+                field="email" 
+                type="email" 
+                required={true} 
+                className={'bg-gray-200/80 px-4 py-3 rounded-md w-full mb-4'} 
+            />
+
+            <Input 
+                placeholder="password" 
+                field="password" 
+                type="password" 
+                required={true} 
+                className={'bg-gray-200/80 px-4 py-3 rounded-md w-full mb-4'} 
+            />
+
+            <Button 
+                className={`bg-lime-400 text-white font-semibold w-full rounded-md px-4 py-3`}
+            >
+                Sign up
+            </Button>
+            
+        </FormLayout>
     )
 }
 
