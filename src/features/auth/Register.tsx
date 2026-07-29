@@ -1,14 +1,25 @@
+import { useState } from "react"
+import { userRegister } from "../../api/auth"
 import { Button } from "../../components/Button"
 import { Input } from "../../components/Input"
 import { FormLayout } from "./FormLayout"
 
 const Register = () => {
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        username: "",
+        email: "",
+        password: ""
+    })
+
+
     return (
-        <FormLayout className={`w-[40%]`}>
+        <FormLayout handleSubmitForm={userRegister} className={`w-[40%]`}>
             <div className="flex gap-4 mb-4">
                 <Input 
                     placeholder="First Name" 
-                    field="first_name" 
+                    field="firsName" 
                     type="text" 
                     required={true} 
                     className={'bg-gray-200/80 px-4 py-3 rounded-md w-full'} 
@@ -16,7 +27,7 @@ const Register = () => {
 
                 <Input 
                     placeholder="Last Name" 
-                    field="last_name" 
+                    field="lastName" 
                     type="text" 
                     required={false} 
                     className={'bg-gray-200/80 px-4 py-3 rounded-md w-full'} 

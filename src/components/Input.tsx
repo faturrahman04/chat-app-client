@@ -1,3 +1,4 @@
+import type React from "react"
 import type { HTMLInputTypeAttribute } from "react"
 
 interface InputProps {
@@ -8,6 +9,7 @@ interface InputProps {
     required?: boolean | undefined
     readonly?: boolean | undefined
     placeholder: string
+    onChange: React.ChangeEventHandler<HTMLInputElement>
     className: String
 }
 
@@ -20,6 +22,7 @@ export const Input = (
         required,
         readonly,
         placeholder,
+        onChange,
         className
     }: InputProps
 ) => {
@@ -31,7 +34,8 @@ export const Input = (
             name={field} 
             required={required} 
             readOnly={readonly} 
-            placeholder={placeholder} 
+            placeholder={placeholder}
+            onChange={onChange} 
             className={`${className} outline-none`}
         />
     )
