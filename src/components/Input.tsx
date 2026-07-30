@@ -10,7 +10,8 @@ interface InputProps {
     readonly?: boolean | undefined
     placeholder: string
     onChange: React.ChangeEventHandler<HTMLInputElement>
-    className: String
+    className: String,
+    value: React.HTMLInputTypeAttribute
 }
 
 export const Input = (
@@ -23,7 +24,8 @@ export const Input = (
         readonly,
         placeholder,
         onChange,
-        className
+        className,
+        value
     }: InputProps
 ) => {
     return (
@@ -37,6 +39,7 @@ export const Input = (
             placeholder={placeholder}
             onChange={onChange} 
             className={`${className} outline-none`}
+            value={value}
         />
     )
 }

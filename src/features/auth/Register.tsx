@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { userRegister } from "../../api/auth"
 import { Button } from "../../components/Button"
 import { Input } from "../../components/Input"
@@ -13,16 +13,29 @@ const Register = () => {
         password: ""
     })
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }))
+    }
+
+    const handleRegisterUser = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        await userRegister(formData)
+    }
 
     return (
-        <FormLayout handleSubmitForm={userRegister} className={`w-[40%]`}>
+        <FormLayout handleSubmitForm={handleRegisterUser} className={`w-[40%]`}>
             <div className="flex gap-4 mb-4">
                 <Input 
                     placeholder="First Name" 
-                    field="firsName" 
+                    field="firstName" 
                     type="text" 
                     required={true} 
                     className={'bg-gray-200/80 px-4 py-3 rounded-md w-full'} 
+                    onChange={handleChange}
+                    value={formData.firstName}
                 />
 
                 <Input 
@@ -31,6 +44,8 @@ const Register = () => {
                     type="text" 
                     required={false} 
                     className={'bg-gray-200/80 px-4 py-3 rounded-md w-full'} 
+                    onChange={handleChange}
+                    value={formData.lastName}
                 />
             </div>
 
@@ -40,6 +55,8 @@ const Register = () => {
                 type="text" 
                 required={true} 
                 className={'bg-gray-200/80 px-4 py-3 rounded-md w-full mb-4'} 
+                onChange={handleChange}
+                value={formData.username}
             />
 
             <Input 
@@ -48,6 +65,8 @@ const Register = () => {
                 type="email" 
                 required={true} 
                 className={'bg-gray-200/80 px-4 py-3 rounded-md w-full mb-4'} 
+                onChange={handleChange}
+                value={formData.email}
             />
 
             <Input 
@@ -56,6 +75,8 @@ const Register = () => {
                 type="password" 
                 required={true} 
                 className={'bg-gray-200/80 px-4 py-3 rounded-md w-full mb-4'} 
+                onChange={handleChange}
+                value={formData.password}
             />
 
             <Button 
