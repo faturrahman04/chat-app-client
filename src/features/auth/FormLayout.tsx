@@ -10,7 +10,12 @@ export const FormLayout = (
     { children, className, handleSubmitForm }: FormLayoutProps
 ) => {
     return (
-        <form method="POST" onSubmit={handleSubmitForm} className={`w-[30%] p-6 font-open-sans ${className}`}>
+        <form method="POST" onSubmit={handleSubmitForm} 
+            className={`
+                w-full p-6 font-open-sans ${className}
+                sm:w-[80%]
+            `}
+            >
             {children}
         </form>
     )

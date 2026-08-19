@@ -32,18 +32,19 @@ const AuthLayout = () => {
         : "Login"
 
     return (
-        <div className="h-dvh p-60">
-            <h1 className="font-playwrite-nz-basic font-semibold text-lime-400 text-4xl text-center">Chathink</h1>
+        <div className="h-dvh p-0 flex justify-center items-center">
+            <div>
+                <h1 className="font-playwrite-nz-basic font-semibold text-lime-400 text-4xl text-center">Chathink</h1>
 
-            <p className="text-black text-2xl font-open-sans font-medium text-center mt-12">{title}</p>
-            <p className="text-center text-sm">{subTitle}</p>
+                <p className="text-black text-2xl font-open-sans font-medium text-center mt-12">{title}</p>
+                <p className="text-center text-sm">{subTitle}</p>
 
-            <div className="flex justify-center">
-                <Outlet />
+                <div className="flex justify-center">
+                    <Outlet />
+                </div>
+
+                <p className="font-open-sans text-center">{linkDetail}<Link to={redirect} className="text-lime-500 font-medium hover:underline"> {link}</Link></p>
             </div>
-
-            <p className="font-open-sans text-center">{linkDetail}<Link to={redirect} className="text-lime-500 font-medium hover:underline"> {link}</Link></p>
-
         </div>
     )
 }
