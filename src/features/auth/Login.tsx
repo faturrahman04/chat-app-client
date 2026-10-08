@@ -1,10 +1,14 @@
 import { useState } from "react"
+import { useNavigate } from "react-router"
 import { Button } from "../../components/Button"
 import { Input } from "../../components/Input"
 import { FormLayout } from "./FormLayout"
 import { userLogin } from "../../api/auth"
+import { useAuthContext } from "../../utils/AuthContext"
 
 const Login = () => {
+    let navigate = useNavigate();
+    const { loading, setLoading, error, setError } = useAuthContext()
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -19,7 +23,11 @@ const Login = () => {
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        await userLogin(formData)
+        const user = await userLogin(formData)
+
+        if (user.code == 200 && user.status == "success" && user.results) {
+            navigate('/chat')
+        }
     }
 
     return (

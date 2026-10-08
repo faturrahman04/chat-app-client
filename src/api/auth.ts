@@ -53,7 +53,7 @@ export const userLogin = async ({
             body: JSON.stringify(payload)
         })
         const result = await response.json()
-        console.log(result)
+        return result
     } catch (err) {
         console.error("Login failed", err)
     }

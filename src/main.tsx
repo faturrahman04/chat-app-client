@@ -8,25 +8,29 @@ import LoginPage from './pages/auth/Login.tsx'
 import RegisterPage from './pages/auth/Register.tsx'
 import Chats from './pages/users/Chats.tsx'
 
+import { AuthProvider } from './utils/AuthContext.tsx'
+
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
-    <Routes>
+    <AuthProvider>
+      <Routes>
 
-      {/* Auth */}
-      <Route element={<AuthLayout />}>
-        <Route path='login' element={<LoginPage />} />
-        <Route path='register' element={<RegisterPage />} />
-      </Route>
-      {/* Auth */}
+        {/* Auth */}
+          <Route element={<AuthLayout />}>
+            <Route path='login' element={<LoginPage />} />
+            <Route path='register' element={<RegisterPage />} />
+          </Route>
+        {/* Auth */}
 
-      {/* Chat */}
-      <Route element={<ChatLayout />}>
-        <Route path='/chat' element={<Chats />} />
-      </Route>
-      {/* Chat */}
+        {/* Chat */}
+        <Route element={<ChatLayout />}>
+          <Route path='/chat' element={<Chats />} />
+        </Route>
+        {/* Chat */}
 
-      {/* Index App */}
-      <Route path='/' element={<App />} />
-    </Routes>
+        {/* Index App */}
+        <Route path='/' element={<App />} />
+      </Routes>
+    </AuthProvider>
   </BrowserRouter>,
 )
