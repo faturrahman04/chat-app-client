@@ -7,8 +7,8 @@ const NavChats = () => {
                 <img src={defaultUser} className="rounded-[50%] w-14" alt="" />
             </div>
             <div className="">
-                <h1 className="font-semibold">Profile User Chat</h1>
-                <p className="text-green-700">User A is typing...</p>
+                <h1 className="font-semibold">My Profile</h1>
+                <p className="text-green-700">Info account</p>
             </div>
         </div>
     )
